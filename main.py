@@ -18,9 +18,9 @@ class ChatRequest(BaseModel):
     message: str
 
 # 加载历史记录
-log_life = "chat_history.json"
+log_file = "json/chat_history.json"
 try:
-    with open(log_life,"r",encoding="utf-8")as f:
+    with open(log_file,"r",encoding="utf-8")as f:
         messages = json.load(f)
 except FileNotFoundError:
     messages = []
@@ -42,7 +42,7 @@ def chat(request: ChatRequest):
 
     messages.append({"role":"assistant","content":answer})
 
-    with open(log_life,"w",encoding="utf-8")as f:
+    with open(log_file,"w",encoding="utf-8")as f:   
         json.dump(messages,f,ensure_ascii=False,indent=2)
 
     return {"reply":answer}
