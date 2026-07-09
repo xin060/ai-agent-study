@@ -11,7 +11,7 @@ print("欢迎使用 AI 学习助手 v4")
 print("输入 '退出' 结束对话")
 print("输入 '历史' 查看聊天记录")
 
-log_file = "chat_history.json"
+log_file = "json/chat_history.json" 
 
 try:
     with open(log_file, "r", encoding="utf-8") as f:
